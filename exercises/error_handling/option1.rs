@@ -10,11 +10,10 @@ pub fn pop_too_much() -> bool {
     let last = list.pop().unwrap();
     println!("The last item in the list is {:?}", last);
 
-    let second_to_last = list.pop().unwrap();
-    println!(
-        "The second-to-last item in the list is {:?}",
-        second_to_last
-    );
+    let second_to_last = match list.pop() {
+        Some(v) => println!("The second-to-last item in the list is {:?}", v),
+        None => println!("empty, no more items."),
+    };
     true
 }
 
